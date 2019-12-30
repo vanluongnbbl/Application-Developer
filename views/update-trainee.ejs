@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update Trainee</title>
+</head>
+<body>
+   <%- include('./partials/head.ejs') %>
+<% if(locals.result) { %>
+    <div class="container">
+        <form action="/staff/update-trainee/<%= result[0].trainee_id %>" method="POST">
+            <br> <br>
+            <h2><i class="fas fa-edit"> </i>Update Trainee</h2>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-id-card"></i> Trainee ID</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="trainee_id" value="<%= result[0].trainee_id %>" disabled></div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-user-edit"></i> First Name</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="first_name" value="<%= result[0].first_name %>" required></div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-user-edit"></i> Last Name</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="last_name" value="<%= result[0].last_name %>" required></div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-envelope-square"></i> Email</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="email" value="<%= result[0].email %>" required></div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-phone"></i> Phone</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="phone" value="<%= result[0].phone %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-address-card"></i> Address</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="address" value="<%= result[0].address %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-8"><button type="submit" class="btn btn-success fa-pull-right"><i class="fas fa-edit"> </i>Update</button></div>
+            </div>
+        </form>
+    </div>
+<% } %>
+</body>
+</html>

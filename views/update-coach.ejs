@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update Coach</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+</head>
+<body>
+    <%- include('./partials/head.ejs') %>
+<% if(locals.result) { %>
+    <br> <br>
+    <div class="container">
+        <form action="/staff/update-coach/<%= result[0].coach_id %>" method="POST">
+            <h2><i class="fas fa-edit"></i> Update Coach</h2>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-id-card"></i> Coach ID</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="coach_id" value="<%= result[0].coach_id %>" disabled></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-user-edit"></i> First Name</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="first_name" value="<%= result[0].first_name %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-user-edit"></i> Last Name</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="last_name" value="<%= result[0].last_name %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-envelope-square"></i> Email</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="email" value="<%= result[0].email %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-phone"></i> Phone</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="phone" value="<%= result[0].phone %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-address-card"></i> Address</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="address" value="<%= result[0].address %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-8"><button type="submit" class="btn btn-success fa-pull-right"><i class="fas fa-edit"></i> Update</button></div>
+            </div>
+            <hr>
+        </form>
+    </div>
+           
+<% } %>
+
+   <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

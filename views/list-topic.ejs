@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Topic List</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://kit.fontawesome.com/3fa7701fe0.js" crossorigin="anonymous"></script>
+    
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <%- include('./partials/head.ejs') %>
+  
+    <div class="container">
+        <% if(locals.msg) { %>  
+            <% if(locals.msg == 'Success') { %>
+            <div class="alert alert-success">
+                <strong>Delete successful!</strong>
+              </div> 
+              <% } else { %>
+                <div class="alert alert-danger">
+                    <strong>Delete Fail!</strong>
+                  </div> 
+                <% } %>
+        <% } %>
+
+        <br> <br>
+        <h2><i class="fas fa-list-ul"></i> List Topic</h2>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-2"><i class="fas fa-id-card"></i> Topic ID</div>
+            <div class="col-md-2"><i class="fas fa-user-edit"></i> Title</div>
+            <div class="col-md-4"><i class="fas fa-audio-description"></i> Description</div>
+            <% if(encryptedCookies.role == 4) {  %>
+            <div class="col-md-2">Edit</div>
+            <div class="col-md-2">Delete</div>
+            <% } %>
+        </div>
+        <hr>
+        
+<% if(locals.result) { %>
+    <% for(let i = 0; i < result.length; i++) { %>
+        <div class="row">
+            <div class="col-md-2"><%= result[i].topic_id %></div>
+            <div class="col-md-2"><%= result[i].title%></div>
+            <div class="col-md-4"><%= result[i].description %></div>
+            <% if(encryptedCookies.role == 4) {  %>
+                <div class="col-md-2"><a href="/staff/update-topic/<%= result[i].topic_id %>"><i class="fas fa-edit"></i></a></div>
+                <div class="col-md-2">
+                        <a id="abc" href="/staff/delete-topic/<%= result[i].topic_id %>" onclick="myFunction()">
+                           <i class="fas fa-trash-alt"></i>
+                        </a>      
+                </div>
+            <% } %>
+        </div>
+        <hr>
+         
+    <% } %> 
+<% } %>
+</div>
+
+
+    <script>
+        function myFunction() {
+        confirm("Are you sure to delete this Topic?!");
+        }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
+</body>
+</html>

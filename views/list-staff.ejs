@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Trainee List</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="https://kit.fontawesome.com/3fa7701fe0.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <%- include('./partials/head.ejs') %>
+
+    <div class="container">
+        <% if(locals.msg) { %>  
+            <% if(locals.msg == 'Success') { %>
+            <div class="alert alert-success">
+                <strong>Delete successful!</strong>
+              </div> 
+              <% } else { %>
+                <div class="alert alert-danger">
+                    <strong>Delete Fail!</strong>
+                  </div> 
+                <% } %>
+        <% } %>
+
+    <div class="container">
+        <br>
+        <div class="row"><h1><i class="fas fa-users"></i> Staff List</h1></div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-1"><i class="fas fa-id-card-alt"></i> ID</div>
+            <!-- <div class="col-sm-2"><i class="fas fa-user-edit"></i> First Name</div> -->
+            <div class="col-sm-2"><i class="fas fa-user-edit"></i> Last Name</div>
+            <div class="col-sm-2"><i class="fas fa-envelope-square"></i> Email</div>
+            <div class="col-sm-2"><i class="fas fa-phone"></i> Phone</div>
+            <div class="col-sm-3"><i class="fas fa-address-card"></i> Address</div>
+            <div class="col-sm-1">Edit</div>
+            <div class="col-sm-1">Delete</div>
+        </div>
+        <hr>
+        <% if(locals.result) { %>
+            <% for(let i = 0; i < result.length; i++) { %>
+            <div class="row">
+                <div class="col-sm-1"><%= result[i].staff_id %></div>
+                <!-- <div class="col-sm-2"><%= result[i].first_name %></div> -->
+                <div class="col-sm-2"><%= result[i].last_name %></div>
+                <div class="col-sm-2"><%= result[i].email %></div>
+                <div class="col-sm-2"><%= result[i].phone %></div>
+                <div class="col-sm-3"><%= result[i].address %></div>
+                <div class="col-sm-1"> <a href="/staff/update-staff/<%= result[i].staff_id %>"><i class="fas fa-edit"></i></a></div>
+                <div class="col-sm-1"><a href="/staff/delete-staff/<%= result[i].staff_id %>" onclick="myFunction()"><i class="fas fa-trash-alt"></i></a></div>
+            </div>
+            <hr>
+            <% } %> 
+        <% } %>
+    </div>
+
+
+    <script>
+
+        function myFunction(){
+            var del = confirm('delete this product')
+            if (del){
+                return true
+            }
+            else {return false}
+    
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

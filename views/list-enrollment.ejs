@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Enrollment list</title>
+</head>
+<body>
+    <%- include('./partials/head.ejs') %>
+
+    <div class="container">
+        <br>  <br>
+        <div class="row">
+            <div class="col-md-9"><h2>List Enrollment</h2></div>
+            <div class="col-md-3">
+                <button class="btn btn-primary">
+                <a href="/staff/add/enrollment" style="color: antiquewhite;">Add new</a>
+                 </button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">Enrollment ID</div>
+            <div class="col-md-3">Course Title</div>
+            <div class="col-md-3">Trainee name</div>
+            <div class="col-md-3">Edit/Delete</div>
+        </div>
+        <hr>
+            <% if(locals.result) { %>
+                <% for(let i = 0; i < result.length; i++) { %>
+                    <div class="row">
+                        <div class="col-md-3"><%= result[i].enrollment_id %></div>
+                        <div class="col-md-3"><%= result[i].dataValues.courses.title %></div>
+                        <div class="col-md-3"><%= result[i].dataValues.trainees.first_name + ' ' + result[i].dataValues.trainees.last_name %></div>
+                        <div class="col-md-3">
+                            <a href="/staff/update/enrollment/<%= result[i].enrollment_id %>"><i class="fas fa-edit"></i></a> - 
+                            <a href="/staff/delete/enrollment/<%= result[i].enrollment_id %>"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </div>
+                    <hr>
+        <% } %>
+    <% } %>
+    </div>
+   
+</body>
+</html>

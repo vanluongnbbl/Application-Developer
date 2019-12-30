@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Add Staff</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://kit.fontawesome.com/3fa7701fe0.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+<%- include('./partials/head.ejs') %>
+<% if(locals.result) { %>
+  <%= result %>
+<% } %>
+    <form action="/admin/add/staff" method="POST">
+        <div class="container">
+            <br>
+            <div class="row"><h1><i class="fas fa-user-plus"></i> Create Account</h1></div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6"><i class="fas fa-user"></i> User Name</div>
+                <div class="col-sm-6"><input type="text" name="username" id="username" class="form-control" placeholder="User Name" required></div>
+            </div>
+            <hr> 
+            <div class="row">
+                <div class="col-sm-6"><i class="fas fa-user-lock"></i> Password</div>
+                <div class="col-sm-6"><input type="password" name="password" id="password" class="form-control" placeholder="Password" required></div>
+            </div> 
+            <!-- End create Account -->
+            <hr>
+            <div class="row">
+                <div class="col-sm-6"><i class="fas fa-user-edit"></i> First Name</div>
+                <div class="col-sm-6"><input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6"><i class="fas fa-user-edit"></i> Last Name</div>
+                <div class="col-sm-6"><input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6"><i class="fas fa-envelope-square"></i> Email</div>
+                <div class="col-sm-6"><input type="email" name="email" id="email" class="form-control" placeholder="Email" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6"><i class="fas fa-phone"></i> Phone</div>
+                <div class="col-sm-6"><input type="number" name="phone" id="phone" class="form-control" placeholder="Phone" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6"><i class="fas fa-address-card"></i> Address</div>
+                <div class="col-sm-6"><input type="text" name="address" id="address" class="form-control" placeholder="Address" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6 pull-right"><button class="btn btn-success" type="submit"><i class="fas fa-plus-square"></i> Add</button> </div>
+            </div>
+        </div>
+
+    </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

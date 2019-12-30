@@ -1,0 +1,12 @@
+<%- include('./partials/head.ejs') %>
+<% if(locals.msg) { %>
+    <% if(locals.msg == 'Success') { %>    
+        <div class="alert alert-success"><%= msg %></div>
+    <% } else { %>
+        <div class="alert alert-danger">
+            <%= msg %>
+        </div>
+     <% } %>
+<% } %>
+
+

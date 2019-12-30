@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update Course</title>
+</head>
+<body>
+    <%- include('./partials/head.ejs') %>
+
+<% if(locals.result) {%>
+    <br> <br>
+    
+    <div class="container">
+        <h2><i class="fas fa-edit"></i> Update Course</h2>
+        <hr>
+        <form action="/staff/update-course/<%= result[0].course_id %>" method="POST">
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-id-card"></i> Course ID</div>
+                <div class="col-md-8"><input class="form-control" class="form-control" type="text" name="course_id" value="<%= result[0].course_id %>" disabled></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-user-edit"></i> Title</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="title" value="<%= result[0].title %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-audio-description"></i> Description</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="description" value="<%= result[0].description %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-id-card"></i> Coach Id</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="coach_id" value="<%= result[0].coach_id %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-id-card"></i> Topic Id</div>
+                <div class="col-md-8"><input class="form-control" type="text" name="topic_id" value="<%= result[0].topic_id %>" required></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-8"><button class="btn btn-success fa-pull-right" type="submit"><i class="fas fa-edit"></i> Update</button></div>
+            </div>
+        </form>
+    </div>
+   
+<% } %>
+</body>
+</html>

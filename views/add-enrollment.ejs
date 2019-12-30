@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add enrollment</title>
+</head>
+<body>
+    <%- include('./partials/head.ejs') %>
+    <div class="container">
+        <br> <br>
+        <form action="/staff/add/enrollment" method="POST">
+            <div class="row">
+                <div class="col-md-4"><h2>Add New Trainee</h2></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-4"><i class="fas fa-user-edit"></i>Course Id</div>
+              <div class="col-md-8"><input type="text" name="course_id" id="course_id" class="form-control"></div>
+            </div>
+            <!-- end title -->
+            <hr>
+            <div class="row">
+                <div class="col-md-4"><i class="fas fa-audio-description"></i> Trainee Id</div>
+                <div class="col-md-8"><input type="text" name="trainee_id" id="trainee_id" class="form-control"></div>
+            </div>
+            <!-- end Description -->
+            <hr>
+            <div class="row">
+              <div class="col-md-4"></div>
+              <div class="col-md-8"> <button class="btn btn-success fa-pull-right" type="submit"><i class="fas fa-plus-square"></i> Add</button></div>
+            </div>
+          </form>
+    </div>
+    
+</body>
+</html>
